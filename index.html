@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snake Game</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="wrapper">
+    <h1>Snake Game</h1>
+
+    <div class="main-row">
+      <section class="game-area">
+        <canvas id="game-board" width="400" height="400" aria-label="Snake game board"></canvas>
+        <div id="overlay" class="overlay hidden" role="status" aria-live="polite">
+          <p id="status-message"></p>
+          <button id="overlay-restart" type="button">Play Again</button>
+        </div>
+      </section>
+
+      <section class="panel side-panel">
+        <div class="scoreboard">
+          <div>Score: <span id="score">0</span></div>
+          <div>High Score: <span id="high-score">0</span></div>
+        </div>
+
+        <div class="controls">
+          <div class="control-row">
+            <button id="start-btn" type="button">Start</button>
+            <button id="restart-btn" type="button">Restart</button>
+          </div>
+
+          <div class="control-row player-name">
+            <label for="player-name">Player</label>
+            <input id="player-name" type="text" maxlength="16" placeholder="Player">
+          </div>
+
+          <div class="control-row speed-control">
+            <label for="speed-slider">Speed</label>
+            <input id="speed-slider" type="range" min="1" max="10" value="5" step="1" aria-describedby="speed-value">
+            <span id="speed-value">Medium</span>
+          </div>
+
+          <div class="control-row obstacle-control">
+            <label class="toggle">
+              <input id="obstacle-toggle" type="checkbox">
+              <span>Enable Obstacles</span>
+            </label>
+            <label for="obstacle-limit" class="obstacle-limit">
+              Limit
+              <input id="obstacle-limit" type="number" min="1" max="50" value="5">
+            </label>
+          </div>
+        </div>
+
+        <div class="instructions">
+          <p>Use arrow keys or WASD to steer the snake. Eat the food to grow longer.</p>
+          <p>Press P or click the board to pause or resume. Avoid hitting the walls, obstacles, or yourself.</p>
+          <p>Top scores are stored locally in the leaderboard panel.</p>
+        </div>
+
+        <section class="leaderboard">
+          <h2>Leaderboard</h2>
+          <ol id="leaderboard-list" class="leaderboard-list">
+            <li class="empty">No scores yet</li>
+          </ol>
+        </section>
+      </section>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
